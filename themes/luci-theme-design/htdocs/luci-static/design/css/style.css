@@ -53,8 +53,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000;
-    --bgwhite: #000;
+    --bg: #202020;
+    --bgwhite: #202020;
     --textColor: #fefefe;
     --activeColor: #5ea69b;
     --activeBottom: #51c291 2px solid;
@@ -76,7 +76,7 @@
     --inputbgColor: #2f2f2f;
     --inputtextColor: #fefefe;
     --inputBorder: 1px solid #4d4d4d;
-    --mainleftbgColor: #000;
+    --mainleftbgColor: #202020;
     --bttextColor: #fefefe;
     --badgebgColor: #fefefe;
     --badgeBorder: #3d3d40 1px solid;
