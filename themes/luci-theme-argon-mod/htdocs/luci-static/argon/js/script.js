@@ -1,11 +1,11 @@
 /**
- *  Material is a clean HTML5 theme for LuCI. It is based on luci-theme-bootstrap and MUI
+ *  Argon is a clean HTML5 theme for LuCI. It is based on luci-theme-material and Argon Template
  *
  *  luci-theme-argon
- *      Copyright 2023 gngpp <gngppz@gmail.com>
+ *      Copyright 2019 Jerrykuku <jerrykuku@qq.com>
  *
  *  Have a bug? Please create an issue here on GitHub!
- *      https://github.com/LuttyYang/luci-theme-material/issues
+ *      https://github.com/jerrykuku/luci-theme-argon/issues
  *
  *  luci-theme-bootstrap:
  *      Copyright 2008 Steven Barth <steven@midlink.org>
@@ -14,17 +14,25 @@
  *
  *  MUI:
  *      https://github.com/muicss/mui
- * 
- *      luci-theme-material:
+ *
+ *  luci-theme-material:
  *      https://github.com/LuttyYang/luci-theme-material/
  *
+ *  Agron Theme
+ *	    https://demos.creative-tim.com/argon-dashboard/index.html
+ *
+ *  Login background
+ *      https://unsplash.com/
  *
  *  Licensed to the public under the Apache License 2.0
  */
-(function ($) {
 
+/*
+ *  Font generate by Icomoon<icomoon.io>
+ */
+(function ($) {
     $(".main > .loading").fadeOut();
-    
+
     /**
      * trim text, Remove spaces, wrap
      * @param text
@@ -33,6 +41,7 @@
     function trimText(text) {
         return text.replace(/[ \t\n\r]+/g, " ");
     }
+
 
     var lastNode = undefined;
     var mainNodeName = undefined;
@@ -58,12 +67,11 @@
      * @returns {boolean} success?
      */
     function getCurrentNodeByUrl() {
+        var ret = false;
         if (!$('body').hasClass('logged-in')) {
             luciLocation = ["Main", "Login"];
             return true;
         }
-        const urlReg = new RegExp(nodeUrl + "$")
-        var ret = false;
         $(".main > .main-left > .nav > .slide > .active").next(".slide-menu").stop(true).slideUp("fast");
         $(".main > .main-left > .nav > .slide > .menu").removeClass("active");
         $(".main > .main-left > .nav > .slide > .menu").each(function () {
@@ -73,7 +81,7 @@
                 var that = $(this);
                 var href = that.attr("href");
 
-                if (urlReg.test(href)) {
+                if (href.indexOf(nodeUrl) != -1) {
                     ulNode.click();
                     ulNode.next(".slide-menu").stop(true, true);
                     lastNode = that.parent();
@@ -108,14 +116,27 @@
 
             return false;
         }
+
     });
+
+
+
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+    if ($("#cbi-dhcp-lan-ignore").length > 0) {
+        observer.observe(document.getElementById("cbi-dhcp-lan-ignore"), {
+            subtree: true,
+            attributes: true
+        });
+    }
 
     /**
      * hook menu click and add the hash
      */
     $(".main > .main-left > .nav > .slide > .slide-menu > li > a").click(function () {
-        if (lastNode != undefined) 
-        lastNode.removeClass("active");
+        if (lastNode != undefined)
+            lastNode.removeClass("active");
         $(this).parent().addClass("active");
         $(".main > .loading").fadeIn("fast");
         return true;
@@ -125,9 +146,18 @@
      * fix menu click
      */
     $(".main > .main-left > .nav > .slide > .slide-menu > li").click(function () {
-        if (lastNode != undefined) 
+        if (lastNode != undefined)
             lastNode.removeClass("active");
         $(this).addClass("active");
+        $(".main > .loading").fadeIn("fast");
+        window.location = $($(this).find("a")[0]).attr("href");
+        return false;
+    });
+    
+    /**
+     * fix submenu click
+     */
+    $("#maincontent > .container > .tabs > li").click(function () {
         $(".main > .loading").fadeIn("fast");
         window.location = $($(this).find("a")[0]).attr("href");
         return false;
@@ -136,12 +166,11 @@
     /**
      * get current node and open it
      */
-    if (getCurrentNodeByUrl()) {
-        mainNodeName = "node-" + luciLocation[0] + "-" + luciLocation[1];
-        mainNodeName = mainNodeName.replace(/[ \t\n\r\/]+/g, "_").toLowerCase();
-        $("body").addClass(mainNodeName);
-    }
     
+    $(".cbi-button-up").val("");
+    $(".cbi-button-down").val("");
+
+
     /**
      * hook other "A Label" and add hash to it.
      */
@@ -163,67 +192,68 @@
      * Sidebar expand
      */
     var showSide = false;
-
     $(".showSide").click(function () {
         if (showSide) {
             $(".darkMask").stop(true).fadeOut("fast");
-            $(".main-left").stop(true).animate({
-                width: "0"
-            }, "fast");
+            $(".main-left").width(0);
             $(".main-right").css("overflow-y", "auto");
-            $("header>.container>.brand").css("padding", "0 4.5rem")
             showSide = false;
         } else {
             $(".darkMask").stop(true).fadeIn("fast");
-            $(".main-left").stop(true).animate({
-                width: "18rem"
-            }, "fast");
+            $(".main-left").width("15rem");
             $(".main-right").css("overflow-y", "hidden");
-            $(".showSide").css("display", "none");
-            $("header").css("box-shadow", "18rem 2px 4px rgb(0 0 0 / 8%)")
-            $("header>.container>.brand").css("padding", '0rem')
             showSide = true;
         }
     });
 
+
     $(".darkMask").click(function () {
         if (showSide) {
-            $(".darkMask").stop(true).fadeOut("fast");
-            $(".main-left").stop(true).animate({
-                width: "0"
-            }, "fast");
-            $(".main-right").css("overflow-y", "auto");
-            $(".showSide").css("display", "");
-            $("header").css("box-shadow", "0 2px 4px rgb(0 0 0 / 8%)")
-            $("header>.container>.brand").css("padding", "0 4.5rem")
             showSide = false;
+            $(".darkMask").stop(true).fadeOut("fast");
+            $(".main-left").width(0);
+            $(".main-right").css("overflow-y", "auto");
         }
     });
 
     $(window).resize(function () {
-        if ($(window).width() > 992) {
-            showSide = false;
-            $(".showSide").css("display", "");
+        if ($(window).width() > 921) {
             $(".main-left").css("width", "");
             $(".darkMask").stop(true);
             $(".darkMask").css("display", "none");
-            $("header").css("box-shadow", "18rem 2px 4px rgb(0 0 0 / 8%)")
-            $("header>.container>.brand").css("padding", '0rem')
-        } else {
-            $("header").css("box-shadow", "0 2px 4px rgb(0 0 0 / 8%)")
-            $("header>.container>.brand").css("padding", "0 4.5rem")
-        }
-        if (showSide) {
-            $("header").css("box-shadow", "18rem 2px 4px rgb(0 0 0 / 8%)")
-            $("header>.container>.brand").css("padding", '0rem')
+            showSide = false;
         }
     });
+
+    /**
+     * fix legend position
+     */
+    $("legend").each(function () {
+        var that = $(this);
+        that.after("<span class='panel-title'>" + that.text() + "</span>");
+    });
+
+    $(".cbi-section-table-titles, .cbi-section-table-descr, .cbi-section-descr").each(function () {
+        var that = $(this);
+        if (that.text().trim() == "") {
+            that.css("padding", "0px");
+        }
+    });
+
+    $(".node-main-login > .main .cbi-value.cbi-value-last .cbi-input-text").focus(function () {
+        //$(".node-main-login > .main > .main-right > .login-bg").addClass("blur");
+    });
+    $(".node-main-login > .main .cbi-value.cbi-value-last .cbi-input-text").blur(function () {
+        //$(".node-main-login > .main > .main-right > .login-bg").removeClass("blur");
+    });
+
 
     $(".main-right").focus();
     $(".main-right").blur();
     $("input").attr("size", "0");
 
     if (mainNodeName != undefined) {
+        console.log(mainNodeName);
         switch (mainNodeName) {
             case "node-status-system_log":
             case "node-status-kernel_log":
