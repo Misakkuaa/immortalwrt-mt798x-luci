@@ -52,8 +52,9 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #f8fbf8;
     --ifaceboxbodyBg: #f8fbf8;
-    --backgroundimageUrl: url('../images/bglight.jpg');
-    --backgroundblurBrightness: 80%;
+    --backgroundimageUrl: url('../images/bg.jpg');
+    --backgroundblurBrightness: 1;
+    --loginbackgroundColor: rgba(241,244,245,0.7);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -98,8 +99,9 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #2e2e2e;
     --ifaceboxbodyBg: #2e2e2e;
-    --backgroundimageUrl: url('../images/bglight.jpg');
-    --backgroundblurBrightness: 40%;
+    --backgroundimageUrl: url('../images/bg.jpg');
+    --backgroundblurBrightness: 0.7;
+    --loginbackgroundColor: rgba(30,30,30,0.7);
   }
 }
 
@@ -2515,9 +2517,11 @@ input[name="nslookup"] {
 /* fix Main Login */
 
 .node-main-login {
+    filter:brightness(var(--backgroundblurBrightness));
     text-align: center;
     /* background-color: var(--bgwhite) !important; */
     background: var(--backgroundimageUrl);
+    background-size: 100%;
 }
 .node-main-login .cbi-section-node > .cbi-value:nth-of-type(2n) {
     background: none;
@@ -2586,9 +2590,10 @@ input[name="nslookup"] {
 }
 
 .node-main-login > .main .container {
-    padding: 50px 50px 50px 50px;
+    background-color: var(--loginbackgroundColor);
+    backdrop-filter: saturate(180%) blur(20px);
+    padding: 50px 60px 50px 60px;
     border-radius: 8px;
-    backdrop-filter: brightness(var(--backgroundblurBrightness)) blur(20px);
     box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
 }
 
