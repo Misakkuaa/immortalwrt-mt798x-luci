@@ -929,10 +929,7 @@ img[src*="/luci-static/resources/icons/loading.gif"] {
 }
 
 #maincontent > .container {
-    padding: 50px 50px 50px 50px;
-    border-radius: 8px;
-    backdrop-filter: brightness(var(--backgroundblurBrightness)) blur(20px);
-    box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
+    margin:30px 30px 50px 30px;
 }
 
 
@@ -2586,6 +2583,10 @@ input[name="nslookup"] {
     align-items: center;
     align-content: center;
     justify-content: center;
+    padding: 50px 50px 50px 50px;
+    border-radius: 8px;
+    backdrop-filter: brightness(var(--backgroundblurBrightness)) blur(20px);
+    box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
 }
 
 /* .node-main-login > .main .container {
@@ -2625,70 +2626,6 @@ input[name="nslookup"] {
 .node-system-reboot > .main > .main-right h3 {
     margin-left: 12px;
 }
-
-.node-main-login > .main .cbi-section {
-    margin-top: 10px !important;
-}
-
-.node-main-login > .main .cbi-map {
-}
-
-.node-main-login > .main div.cbi-section .cbi-value {
-}
-
-.node-main-login > .main div.cbi-section .cbi-value-title {
-    padding: 10px 0 10px 5px !important;
-}
-
-.node-main-login > .main .cbi-value {
-    border: none;
-}
-
-.node-main-login > .main .cbi-value-title {
-    width: 7rem;
-}
-
-.node-main-login > .main #maincontent {
-    display: flex;
-    height: 100%;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-}
-
-/* .node-main-login > .main .container {
-    background-image: var(--logo);
-    background-repeat: no-repeat;
-    background-size: 300px auto;
-    width: 300px;
-    padding: 80px 0 0 0;
-} */
-
-.node-main-login > .main form > div:nth-last-child(1) {
-}
-
-
-.node-main-login > .main .cbi-value > * {
-    display: inline-block !important;
-}
-
-/* .node-main-login > .main .cbi-input-user,
-.node-main-login > .main .cbi-input-password {
-    min-width: 15rem;
-} */
-
-.node-main-login > .main .cbi-input-text {
-    min-width: 15rem;
-}
-
-.node-main-login footer {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-}
-
-
 
 /* fix status */
 .node-status-overview > .main fieldset:nth-child(4) .td:nth-child(2),
