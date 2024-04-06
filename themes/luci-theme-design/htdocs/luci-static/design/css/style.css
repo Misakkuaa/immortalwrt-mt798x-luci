@@ -90,6 +90,7 @@
     --alertBackground: rgb(30 30 30);
     --modelBackground: #1c1c1e;
     --scrollbarColor:#4a4a4a;
+    --bar-bg: #5ea69b;
   }
 }
 
@@ -2285,16 +2286,17 @@ td > .ifacebadge,
 
 .ifacebox-head {
 	padding: .25em;
-	background: #eee;
+	background-color: #6d6d6d;
 }
 
 .ifacebox-head.active {
-	background: #5bc0de;
-	background: var(--bar-bg);
+	/* background: #5bc0de; */
+	background-color: var(--bar-bg);
 }
 
 .ifacebox-body {
 	padding: .25em;
+    background-color: #2e2e2e;
 }
 
 .cbi-image-button {
