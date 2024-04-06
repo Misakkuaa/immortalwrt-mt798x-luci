@@ -70,7 +70,7 @@
     --cbilineColor: #2d2d2d 1px solid;
     --tabbgColor: #1c1c1e;
     --tabmenuBorderLR: none;
-    --tabmenubgColor: none;
+    --tabmenubgColor: #252526;
     --tabmenuBottom: #2d2d2d 1px solid;
     --tabmenuRadius: 6px 6px 0 0;
     --inputbgColor: #2f2f2f;
@@ -1384,6 +1384,7 @@ form.inline + form.inline,
 }
 
 .cbi-tabmenu {
+    border-radius: 8px;
     border-top: var(--sectiontabBorder);
     border-left: var(--tabmenuBorderLR);
     border-right: var(--tabmenuBorderLR);
@@ -2076,7 +2077,8 @@ body.modal-overlay-active #modal_overlay {
 	display: inline-flex;
 	gap: .2rem;
 	padding: .5rem .8rem;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+    background-color: #2e2e2e;
+	/* box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05); */
 }
 
 td > .ifacebadge,
@@ -2107,6 +2109,7 @@ td > .ifacebadge,
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+    background-color: #2e2e2e;
 }
 
 .network-status-table .ifacebox-body > span {
@@ -2715,7 +2718,8 @@ input[name="nslookup"] {
 }
 
 .control-group {
-	/* display: flex; */
+	display: flex;
+    align-items: center;
 	flex-wrap: wrap;
 	gap: 8px;
 }
