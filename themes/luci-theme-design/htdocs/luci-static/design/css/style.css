@@ -52,6 +52,8 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #f8fbf8;
     --ifaceboxbodyBg: #f8fbf8;
+    --backgroundimageUrl: url('../images/bglight.png');
+    --backgroundblurBrightness: 80%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -96,6 +98,8 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #2e2e2e;
     --ifaceboxbodyBg: #2e2e2e;
+    --backgroundimageUrl: url('../images/bglight.png');
+    --backgroundblurBrightness: 40%;
   }
 }
 
@@ -925,7 +929,10 @@ img[src*="/luci-static/resources/icons/loading.gif"] {
 }
 
 #maincontent > .container {
-    margin:30px 30px 50px 30px;
+    padding: 50px 50px 50px 50px;
+    border-radius: 8px;
+    backdrop-filter: brightness(var(--backgroundblurBrightness)) blur(20px);
+    box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
 }
 
 
@@ -2512,7 +2519,8 @@ input[name="nslookup"] {
 
 .node-main-login {
     text-align: center;
-    background-color: var(--bgwhite) !important;
+    /* background-color: var(--bgwhite) !important; */
+    background: var(--backgroundimageUrl);
 }
 .node-main-login .cbi-section-node > .cbi-value:nth-of-type(2n) {
     background: none;
