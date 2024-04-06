@@ -52,7 +52,7 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #f8fbf8;
     --ifaceboxbodyBg: #f8fbf8;
-    --backgroundimageUrl: url('../images/bglight.png');
+    --backgroundimageUrl: url('../images/bglight.jpg');
     --backgroundblurBrightness: 80%;
 }
 
@@ -98,7 +98,7 @@
     --bar-bg: #5ea69b;
     --ifacebadgeBg: #2e2e2e;
     --ifaceboxbodyBg: #2e2e2e;
-    --backgroundimageUrl: url('../images/bglight.png');
+    --backgroundimageUrl: url('../images/bglight.jpg');
     --backgroundblurBrightness: 40%;
   }
 }
@@ -2583,19 +2583,14 @@ input[name="nslookup"] {
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+.node-main-login > .main .container {
     padding: 50px 50px 50px 50px;
     border-radius: 8px;
     backdrop-filter: brightness(var(--backgroundblurBrightness)) blur(20px);
     box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
 }
-
-/* .node-main-login > .main .container {
-    background-image: var(--logo);
-    background-repeat: no-repeat;
-    background-size: 300px auto;
-    width: 300px;
-    padding: 80px 0 0 0;
-} */
 
 .node-main-login > .main form > div:nth-last-child(1) {
 }
