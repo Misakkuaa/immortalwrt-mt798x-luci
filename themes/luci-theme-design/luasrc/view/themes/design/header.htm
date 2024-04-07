@@ -53,6 +53,10 @@
 	local c = tree
 	local i, r
 
+	local path=table.concat(disp.context.path, "-" )
+
+	http.prepare_content("text/html; charset=UTF-8") 
+
 	-- tag all nodes leading to this page
 	for i, r in ipairs(request) do
 		if c.nodes and c.nodes[r] then
