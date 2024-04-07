@@ -110,84 +110,136 @@
 }
 
 @font-face {
-    font-family: 'icomoon';
-    src: url('../fonts/font.eot');
-    src: url('../fonts/font.eot') format('embedded-opentype'),
-        url('../fonts/font.ttf') format('truetype'),
-        url('../fonts/font.woff') format('woff'),
-        url('../fonts/font.svg') format('svg');
-    font-weight: normal;
+    font-family: icomoon;
+    src: url(../fonts/font.eot);
+    src: url(../fonts/font.eot) format('embedded-opentype'),
+        url(../fonts/font.ttf) format('truetype'),
+        url(../fonts/font.woff) format('woff'),
+        url(../fonts/font.svg) format('svg');
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'design';
+    font-family: design;
     src: url('');
-    src: url('?#iefix') format('embedded-opentype'),
-        url('../fonts/iconfont-Regular.woff2') format('woff2'),
-        url('../fonts/iconfont-Regular.woff') format('woff'),
-        url('../fonts/iconfont-Regular.ttf') format('truetype'),
-        url('#iconfont') format('svg');
+    src: url(?#iefix) format('embedded-opentype'),
+        url(../fonts/iconfont-Regular.woff2) format('woff2'),
+        url(../fonts/iconfont-Regular.woff) format('woff'),
+        url(../fonts/iconfont-Regular.ttf) format('truetype'),
+        url(#iconfont) format('svg');
 }
 
 @font-face {
-    font-family: 'Cocon-Regular-Font';
-    src: url('../fonts/Cocon-Regular-Font.otf') format('opentype');
+    font-family: Cocon-Regular-Font;
+    src: url(../fonts/Cocon-Regular-Font.otf) format('opentype');
+}
+
+@font-face {
+    font-family: genjyuugothic-medium;
+    src: url(../fonts/GenJyuuGothic-Medium.otf) format('opentype')
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--scrollbarColor);
+    border-radius: 2px
 }
 
 div {
-    font-family: 'HYk2gj';
-}
-
-::-webkit-scrollbar {
-    width: 4px;
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 0px rgba(240, 240, 240, .5);
-    background-color: rgb(255 255 255 / 0%);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--scrollbarColor);
-    border-radius: 10px;
+    font-family: hyk2gj
 }
 
 html {
     -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
 }
 
-a {
-    color: var(--textColor);
-    text-decoration: none;
-}
-
-em {
-    font-style: normal !important;
-    line-height: 1.5;
-    padding-left: 10px;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, microsoft yahei !important;
+    font-size: .92rem;
+    line-height: 150%;
+    background-color: var(--bg);
+    color: var(--textColor)
 }
 
 body div {
     line-height: 150%;
 }
 
+a {
+    color: var(--textColor);
+    text-decoration: none
+}
+
+em {
+    font-style: normal !important;
+    line-height: 1.5;
+    padding-left: 10px
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent
+}
+
+select {
+    overflow: hidden !important;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 25px 0 10px !important;
+    background-size: 24px 16px;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABGCAYAAAA6hjFpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhDNzA0QUE0NjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhDNzA0QUEzNjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi41IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzNBNTYzNTY2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzNBNTYzNTc2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6YjzxlAAACsklEQVR42uyaXUsVURSG51T0U/obfUvhhYF0U0HQhZQVIWVJCAkiSUXfRRcaBFbXQVBBRCASFCJBpQQipw+RREkpCa9aG95gs0DMOp6Z7TwvvAxnzczaa6/nzDnzVTndfSVDxdE6WgAQBBCAIIAABAEEIAggAEEAQQABCAIIQBBAAIIAAhAEEAQQgCCAAAStGSAbzA/N+wvSiwPmB6or16bkoY2afLN5r+q4l2MfDpr7zetV2z7zYpmOkAHByNSE0IxDOdUSxr2rOjLVNVC2n6z77hsYmtFnbqlzHS0aN+7DouorFZBH+ibGUCrmO+YjdaqhVeNVHIxm1Ve6P/XH5ibzLwfllvn4Ko8d8t90MEIde1RXaU97n6oJCw7KNXPbKo3ZpvwxjAXV8YTrkCx7piPFQ7lsbq/xWO3K62E0qQ4uDKXn5kbzTxe/YO6o0Rgdypc5GI0anyt1p5fm3eYfLn7e3PmfuTuVJ1YYZ5fG5Up9CQ2qSfMu3m3u+secXdo/1rzGGeTWyfIaUrPmXPycuWeFuXq0X6w55R8q4NwLe3PxlXmn+buLnzX3/mWOXm0fK+RrUP4MICvTG/MO86yLnzFfWmbfi9ou1qzyvS7wnAt/+31YTZxx8ZPmq+709c/pcoifcvEZ5Rku+HyTeB4yYt5unnbxE+YbEZSwvK54rGntP5LAXJN5QPXWvNX8zcWPmm9rHmF5zK0P22/T/hlAaqv35i3mKRc/bB7VMtaUIL5LaI7JPcIdVZMnXXyT+zyp7T4kNr8kn6mPqdlfllj/VevHEpxbsi85fNTP1ycX/2zerPUZQOqrcUGp6nNVMMYTnlPyrwFNCMILLScSn0++r7zUSFVdZ6wJ8aIcQBBAAIIAAhAEEIAggAAEAQQBBCAIIABBAAEIAghAEEAQQJLQbwEGAK/reX2gh5gQAAAAAElFTkSuQmCC)
+}
+
+select,
+input {
+    color: var(--inputtextColor);
+    padding: 5px 10px;
+    font-size: .92rem;
+    font-family: -apple-system, microsoft yahei, sans-serif, Helvetica, Arial, sans-serif;
+    border: var(--inputBorder);
+    background-color: var(--inputbgColor);
+    transition: color 100ms ease, border-color 100ms ease, opacity 100ms ease;
+    -webkit-transition: color 100ms ease, border-color 100ms ease, opacity 100ms ease;
+    outline-style: none;
+    vertical-align: middle;
+    border-radius: 8px;
+    margin: 3px 3px 3px 0;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    max-width: 550px
+}
+
 .table {
     position: relative;
-    display: table;
+    display: table
 }
 
 .thead {
-    display: table-header-group;
+    display: table-header-group
 }
 
 .tbody {
-    display: table-row-group;
+    display: table-row-group
 }
 
 .tfoot {
-    display: table-footer-group;
+    display: table-footer-group
 }
 
 .td,
@@ -197,16 +249,16 @@ body div {
     padding: .5em;
     text-align: center;
     vertical-align: middle;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 .th {
     font-weight: bold;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 .tr.placeholder {
-    height: 4em;
+    height: 4em
 }
 
 .tr.placeholder>.td {
@@ -216,30 +268,24 @@ body div {
     bottom: 0;
     left: 0;
     text-align: center !important;
-    background: inherit;
+    background: inherit
 }
 
 .td[width="33%"],
 .td[width="33%"]~.td {
-    padding: 12px;
+    padding: 12px
 }
 
 .table[width="33%"],
 .th[width="33%"],
 .td[width="33%"] {
-    width: 33%;
+    width: 33%
 }
 
 .table[width="100%"],
 .th[width="100%"],
 .td[width="100%"] {
-    width: 100%;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    width: 100%
 }
 
 .h1,
@@ -254,12 +300,32 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: -apple-system, 'Microsoft Yahei';
+    font-family: -apple-system, microsoft yahei;
     font-weight: 600;
     line-height: 1.1;
     color: inherit;
     clear: both;
-    text-transform: capitalize;
+    text-transform: capitalize
+}
+
+label.zonebadge.zonebadge-empty {
+    background-color: #03abe8 !important
+}
+
+label.zonebadge {
+    border-radius: 5px;
+    padding: 2px 5px !important;
+    display: inline-block;
+    cursor: pointer;
+    color: #666
+}
+
+.zonebadge em {
+    padding: 3px
+}
+
+svg {
+    background-color: var(--sectionbgColor)
 }
 
 html {
@@ -268,57 +334,43 @@ html {
     -ms-text-size-adjust: 100%;
 }
 
-html,
-body {
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    font-family: -apple-system, 'Microsoft Yahei' !important;
-    font-size: 0.92rem;
-    line-height: 150%;
-    background-color: var(--bg);
-    color: var(--textColor);
-}
-
-select {
-    overflow: hidden !important;
-    width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 0 25px 0 10px !important;
-    background-size: 24px 16px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABGCAYAAAA6hjFpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhDNzA0QUE0NjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhDNzA0QUEzNjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi41IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzNBNTYzNTY2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzNBNTYzNTc2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6YjzxlAAACsklEQVR42uyaXUsVURSG51T0U/obfUvhhYF0U0HQhZQVIWVJCAkiSUXfRRcaBFbXQVBBRCASFCJBpQQipw+RREkpCa9aG95gs0DMOp6Z7TwvvAxnzczaa6/nzDnzVTndfSVDxdE6WgAQBBCAIIAABAEEIAggAEEAQQABCAIIQBBAAIIAAhAEEAQQgCCAAAStGSAbzA/N+wvSiwPmB6or16bkoY2afLN5r+q4l2MfDpr7zetV2z7zYpmOkAHByNSE0IxDOdUSxr2rOjLVNVC2n6z77hsYmtFnbqlzHS0aN+7DouorFZBH+ibGUCrmO+YjdaqhVeNVHIxm1Ve6P/XH5ibzLwfllvn4Ko8d8t90MEIde1RXaU97n6oJCw7KNXPbKo3ZpvwxjAXV8YTrkCx7piPFQ7lsbq/xWO3K62E0qQ4uDKXn5kbzTxe/YO6o0Rgdypc5GI0anyt1p5fm3eYfLn7e3PmfuTuVJ1YYZ5fG5Up9CQ2qSfMu3m3u+secXdo/1rzGGeTWyfIaUrPmXPycuWeFuXq0X6w55R8q4NwLe3PxlXmn+buLnzX3/mWOXm0fK+RrUP4MICvTG/MO86yLnzFfWmbfi9ou1qzyvS7wnAt/+31YTZxx8ZPmq+709c/pcoifcvEZ5Rku+HyTeB4yYt5unnbxE+YbEZSwvK54rGntP5LAXJN5QPXWvNX8zcWPmm9rHmF5zK0P22/T/hlAaqv35i3mKRc/bB7VMtaUIL5LaI7JPcIdVZMnXXyT+zyp7T4kNr8kn6mPqdlfllj/VevHEpxbsi85fNTP1ycX/2zerPUZQOqrcUGp6nNVMMYTnlPyrwFNCMILLScSn0++r7zUSFVdZ6wJ8aIcQBBAAIIAAhAEEIAggAAEAQQBBCAIIABBAAEIAghAEEAQQJLQbwEGAK/reX2gh5gQAAAAAElFTkSuQmCC');
-}
-
-select,
-input {
-    color: var(--inputtextColor);
-    padding: 5px 10px;
-    font-size: 0.92rem;
-    font-family: -apple-system, 'Microsoft Yahei', sans-serif, Helvetica, Arial, sans-serif;
-    border: var(--inputBorder);
-    background-color: var(--inputbgColor);
-    transition: color 150ms ease, border-color 150ms ease, opacity 150ms ease;
-    -webkit-transition: color 150ms ease, border-color 150ms ease, opacity 150ms ease;
-    outline-style: none;
-    vertical-align: middle;
-    border-radius: 8px;
-    margin: 3px 3px 3px 0;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    max-width: 550px;
-
-}
-
 select:not([multiple="multiple"]):focus,
 input:focus {
     border-color: #948FE1;
     box-shadow: 0 0 6px #948FE1;
     -webkit-box-shadow: 0 0 6px #948FE1;
     -moz-box-shadow: 0 0 6px #948FE1;
+}
+
+input[type=file] {
+    border: none;
+    background: 0 0;
+    height: auto;
+    line-height: 1rem
+}
+
+input[type=checkbox] {
+    height: 1.2rem;
+    width: 1.2rem
+}
+
+input[type=radio] {
+    height: 1.2rem;
+    width: 1.2rem;
+    box-shadow: var(--bg)
+}
+
+select[multiple=multiple] {
+    height: auto
+}
+
+.node-docker-images input[type=text] {
+    width: auto !important
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%
 }
 
 select,
@@ -360,6 +412,12 @@ abbr {
     color: #005470;
 }
 
+br {
+    display: block;
+    margin-bottom: .2px;
+    content: ''
+}
+
 hr {
     margin: 1rem 0;
     opacity: .1;
@@ -374,7 +432,7 @@ header,
 
 header {
     background-color: var(--bgwhite);
-    box-shadow: 17rem 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 18rem 2px 4px rgba(0, 0, 0, 0.08);
     transition: box-shadow 0.2s;
     height: 55px;
     float: left;
@@ -389,12 +447,16 @@ footer {
     font-size: 11px;
     height: 80px;
     visibility: hidden;
-    /*text-shadow: 0px 0px 2px #BBB;*/
 }
 
 footer>a {
     color: rgb(154, 37, 143);
     text-decoration: none;
+}
+
+text,
+line {
+    font-family: Verdana !important
 }
 
 small {
@@ -408,17 +470,118 @@ small {
 .cbi-value-helpicon,
 .showSide,
 .main>.loading>span {
-    /* font-family: 'icomoon' !important; */
-    /* font-size:10px; */
+    font-family: icomoon !important;
+    font-size: 10px;
     speak: none;
-    /* font-style: normal !important; */
-    /* font-weight: normal !important; */
-    /* font-variant: normal !important; */
-    /* text-transform: none !important; */
-    /* line-height: 1; */
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
 
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
+.node-services-passwall2 #cbi-passwall2 {
+    text-align: center
+}
+
+.node-services-passwall2 input.cbi-button.cbi-button {
+    max-width: unset
+}
+
+.node-services-passwall #set_node_div,
+.node-services-passwall2 #set_node_div,
+.node-services-passwall #add_link_div,
+.node-services-passwall2 #add_link_div {
+    background: var(--sectionbgColor);
+    border-radius: var(--commonRadius0)
+}
+
+.node-services-passwall #add_link_div #nodes_link,
+.node-services-passwall2 #add_link_div #nodes_link {
+    width: 100% !important
+}
+
+.node-services-vssr .status-bar {
+    bottom: calc(var(--vssrBottom) + constant(safe-area-inset-bottom));
+    bottom: calc(var(--vssrBottom) + env(safe-area-inset-bottom));
+    background-color: var(--navbgColor);
+    box-shadow: var(--vssrBoxShadow) !important;
+    color: var(--vssrStatusColor) !important
+}
+
+.node-services-vssr .container {
+    padding-bottom: calc(var(--vssrBottom) + constant(safe-area-inset-bottom));
+    padding-bottom: calc(var(--vssrBottom) + env(safe-area-inset-bottom))
+}
+
+.node-services-vssr .ssr-button {
+    min-width: 30px
+}
+
+.node-services-vssr #cbi-vssr .panel-title {
+    padding: 10px 0 10px 10px !important;
+    letter-spacing: 0 !important
+}
+
+.node-services-vssr .status .block {
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    background-color: var(--sectionbgColor) !important
+}
+
+.node-services-vssr button {
+    border-radius: 10px !important
+}
+
+#cbi-vssr-servers .cbi-section-table-row {
+    position: relative;
+    margin: 10px !important;
+    padding: 8px 15px 8px 70px;
+    box-shadow: none !important;
+    border-radius: 10px !important;
+    border: 0;
+    color: var(--textColor) !important;
+    text-align: left;
+    line-height: 1.7em;
+    overflow: hidden;
+    letter-spacing: normal;
+    background-color: var(--inputbgColor) !important
+}
+
+.cbi-section-table-row.fast {
+    background-color: #add8e6 !important
+}
+
+.incon .tp {
+    text-transform: uppercase;
+    color: var(--bg) !important
+}
+
+::file-selector-button {
+    transition: all .1s ease-in-out;
+    border-radius: 5px;
+    border: 3px solid #337ab7 !important;
+    color: #fff !important;
+    background-color: #337ab7 !important;
+    box-sizing: border-box;
+    cursor: pointer
+}
+
+::file-selector-button:hover,
+::file-selector-button:focus,
+::file-selector-button:active {
+    color: #fff !important;
+    background-color: #6a65d6 !important;
+    border-color: #6a65d6 !important
+}
+
+.ifacebox-body img {
+    background-size: 20px 20px;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 0 0 20px !important
 }
 
 .main {
@@ -480,7 +643,7 @@ small {
     position: fixed;
     padding-top: 15px;
     box-shadow: 0 0px 4px rgb(0 0 0 / 8%);
-    /* transition: visibility 150ms, width 150ms; */
+    transition: visibility 150ms, width 150ms;
 }
 
 .main-right {
@@ -496,10 +659,11 @@ small {
     z-index: 50;
 }
 
-
-
 .pull-right {
-    float: right;
+    position: absolute;
+    top: -2px;
+    right: 30px;
+    cursor: pointer
 }
 
 .pull-left {
@@ -536,7 +700,7 @@ header>.fill>.container>#logo>img {
 
 header>.fill>.container>.brand {
     font-size: 25px;
-    font-family: "Cocon-Regular-Font";
+    font-family: genjyuugothic-medium;
     /*font-weight:bold;*/
     line-height: 60px;
     /*color: white;*/
@@ -944,11 +1108,489 @@ body[class*="node-"]>.main>.main-left>.nav>.slide>.menu.active::before {
 
 img[src*="/luci-static/resources/icons/loading.gif"] {
     background-image: url(../images/loading.gif);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+img[src*="/luci-static/resources/icons/port_up.png"] {
+    background-image: url(../images/port_up.png);
+    background-size: 32px 32px;
+    height: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+img[src*="/luci-static/resources/icons/port_down.png"] {
+    background-image: url(../images/port_down.png);
+    background-size: 32px 32px;
+    height: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/ethernet.png"],
+#wan6_i img[src*="/luci-static/resources/icons/ethernet.png"],
+img[src*="/luci-static/resources/icons/ethernet.png"] {
+    background-image: url(../images/ethernet.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/ethernet.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/ethernet.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/ethernet.png"],
+li img[src*="/luci-static/resources/icons/ethernet.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/ethernet.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/ethernet_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/ethernet_disabled.png"],
+img[src*="/luci-static/resources/icons/ethernet_disabled.png"] {
+    background-image: url(../images/ethernet_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/ethernet_disabled.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/ethernet_disabled.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/ethernet_disabled.png"],
+li img[src*="/luci-static/resources/icons/ethernet_disabled.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/ethernet_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/switch.png"],
+#wan6_i img[src*="/luci-static/resources/icons/switch.png"],
+img[src*="/luci-static/resources/icons/switch.png"] {
+    background-image: url(../images/switch.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/switch.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/switch.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/switch.png"],
+li img[src*="/luci-static/resources/icons/switch.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/switch.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/switch_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/switch_disabled.png"],
+img[src*="/luci-static/resources/icons/switch_disabled.png"] {
+    background-image: url(../images/switch_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/switch_disabled.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/switch_disabled.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/switch_disabled.png"],
+li img[src*="/luci-static/resources/icons/switch_disabled.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/switch_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/wifi.png"],
+#wan6_i img[src*="/luci-static/resources/icons/wifi.png"],
+img[src*="/luci-static/resources/icons/wifi.png"] {
+    background-image: url(../images/wifi.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/wifi.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/wifi.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/wifi.png"],
+li img[src*="/luci-static/resources/icons/wifi.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/wifi.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/wifi_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/wifi_disabled.png"],
+img[src*="/luci-static/resources/icons/wifi_disabled.png"] {
+    background-image: url(../images/wifi_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/wifi_disabled.png"],
+#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/wifi_disabled.png"],
+.ifacebadge img[src*="/luci-static/resources/icons/wifi_disabled.png"],
+li img[src*="/luci-static/resources/icons/wifi_disabled.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/wifi_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/vlan.png"],
+#wan6_i img[src*="/luci-static/resources/icons/vlan.png"],
+img[src*="/luci-static/resources/icons/vlan.png"] {
+    background-image: url(../images/vlan.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/vlan.png"],
+li img[src*="/luci-static/resources/icons/vlan.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/vlan.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/vlan_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/vlan_disabled.png"],
+img[src*="/luci-static/resources/icons/vlan_disabled.png"] {
+    background-image: url(../images/vlan_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/vlan_disabled.png"],
+li img[src*="/luci-static/resources/icons/vlan_disabled.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/vlan_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/bridge.png"],
+#wan6_i img[src*="/luci-static/resources/icons/bridge.png"],
+img[src*="/luci-static/resources/icons/bridge.png"] {
+    background-image: url(../images/bridge.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/bridge.png"],
+li img[src*="/luci-static/resources/icons/bridge.png"] {
+    background-image: url(../images/bridge.png);
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px;
+    width: 0
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/bridge.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/bridge_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/bridge_disabled.png"],
+img[src*="/luci-static/resources/icons/bridge_disabled.png"] {
+    background-image: url(../images/bridge_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/bridge_disabled.png"],
+li img[src*="/luci-static/resources/icons/bridge_disabled.png"] {
+    background-image: url(../images/bridge_disabled.png);
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px;
+    width: 0
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/bridge_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/tunnel.png"],
+#wan6_i img[src*="/luci-static/resources/icons/tunnel.png"],
+img[src*="/luci-static/resources/icons/tunnel.png"] {
+    background-image: url(../images/tunnel.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/tunnel.png"],
+li img[src*="/luci-static/resources/icons/tunnel.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/tunnel.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+#wan4_i img[src*="/luci-static/resources/icons/tunnel_disabled.png"],
+#wan6_i img[src*="/luci-static/resources/icons/tunnel_disabled.png"],
+img[src*="/luci-static/resources/icons/tunnel_disabled.png"] {
+    background-image: url(../images/tunnel_disabled.png);
+    background-size: 32px 32px;
+    height: 32px;
+    width: 32px;
+    padding: 0 0 0 32px;
+    width: 0
+}
+
+.ifacebadge img[src*="/luci-static/resources/icons/tunnel_disabled.png"],
+li img[src*="/luci-static/resources/icons/tunnel_disabled.png"] {
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 16px
+}
+
+#__status-ifc-signal img[src*="/luci-static/resources/icons/tunnel_disabled.png"] {
+    background-size: 32px 32px !important;
+    height: 32px !important;
+    width: 32px !important;
+    padding: 0 0 0 32px !important;
+    width: 0
+}
+
+img[src*="/luci-static/resources/icons/wifi_big.png"] {
+    background-image: url(../images/wifi_big.png);
+    background-size: 64px 64px;
+    height: 64px;
+    padding: 0 0 0 64px;
+    width: 0
+}
+
+img[src*="/luci-static/resources/icons/wifi_big_disabled.png"] {
+    background-image: url(../images/wifi_big_disabled.png);
+    background-size: 64px 64px;
+    height: 64px;
+    padding: 0 0 0 64px;
+    width: 0
+}
+
+img[src*="/luci-static/resources/cbi/add.gif"] {
+    background-image: url(../images/add.png);
     background-size: 20px 20px;
     height: 20px;
-    width: 20px;
     padding: 0 0 0 20px;
     width: 0;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/cbi/remove.gif"] {
+    background-image: url(../images/remove.png);
+    background-size: 20px 20px;
+    height: 20px;
+    padding: 0 0 0 20px;
+    width: 0;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/cbi/reload.gif"] {
+    background-image: url(../images/reload.png);
+    background-size: 20px 20px;
+    height: 20px;
+    padding: 0 0 0 20px;
+    width: 0;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-75-100.png"] {
+    background-image: url(../images/signal-75-100.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-50-75.png"] {
+    background-image: url(../images/signal-50-75.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-25-50.png"] {
+    background-image: url(../images/signal-25-50.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-0-25.png"] {
+    background-image: url(../images/signal-0-25.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-0.png"] {
+    background-image: url(../images/signal-0.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+img[src*="/luci-static/resources/icons/signal-none.png"] {
+    background-image: url(../images/signal-none.png);
+    image-rendering: pixelated;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+    padding: 0 0 0 24px;
+    z-index: 2
+}
+
+.myIcon {
+    font-family: design !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important
+}
+
+.myIcon-logout:after {
+    content: "\e005"
+}
+
+.myIcon-reboot:after {
+    content: "\e02a"
+}
+
+.myIcon-wifi:after {
+    content: "\e00c"
 }
 
 #maincontent>.container {
@@ -980,8 +1622,6 @@ h3 {
     font-weight: bold;
     padding: 0 12px 10px 12px;
 }
-
-h4 {}
 
 div.cbi-section {
     border: var(--sectionBorder);
@@ -2765,6 +3405,14 @@ input[name="nslookup"] {
 
 #wifi_assoclist_table>.tr>.td[data-title="RX Rate / TX Rate"] {
     width: 23rem;
+}
+
+.cbi-map {
+    margin-top: 10px
+}
+
+#cbi-shadowsocksr .cbi-map-descr {
+    display: none
 }
 
 /* firewall */
