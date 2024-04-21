@@ -2550,6 +2550,11 @@ input[name="nslookup"] {
     width: 80%;
 }
 
+/* fix wireless assoclist table*/
+[data-page="admin-network-wireless"] #wifi_assoclist_table {
+    white-space: normal;
+}
+
 /* fix Main Login */
 
 .node-main-login {
