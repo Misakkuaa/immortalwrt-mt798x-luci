@@ -2747,13 +2747,12 @@ input[name="nslookup"] {
     box-shadow: inset 1px -1px 0 #ddd, inset -1px -1px 0 #ddd;
 }
 
-/* 踩踩踩踩踩踩 */
 #cbi-wireless>#wifi_assoclist_table>.tr.placeholder>.td {
     right: 33px;
     bottom: 33px;
     left: 33px;
     border-top: thin solid #ddd !important;
-    white-space: normal;
+    white-space: normal !important; /* fix wifi table */
 }
 
 #cbi-wireless>#wifi_assoclist_table>.tr.table-titles {
