@@ -3645,3 +3645,8 @@ button.btn.cbi-button-negative {
 table.table.assoclist>.tr>.td {
     white-space: normal !important;
 }
+
+/* fix overview lases cbi-button-apply */
+table.table.lases>.tr>.td.cbi-section-actions {
+    width: 0px;
+}
