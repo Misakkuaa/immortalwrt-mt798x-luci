@@ -3640,3 +3640,8 @@ button.btn.cbi-button-negative {
 .node-admin-status-overview>.main #view td:nth-child(2) {
     white-space: normal;
 }
+
+/* fix overview wifi table*/
+table.table.assoclist>.tr>.td {
+    white-space: normal !important;
+}
