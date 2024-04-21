@@ -57,6 +57,8 @@
     --backgroundimageUrl: url('../images/bg.jpg');
     --backgroundblurBrightness: 1;
     --loginbackgroundColor: rgba(241, 244, 245, 0.7);
+    --tableborderBottom: #ddd;
+    --tableShadow: #ddd;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,6 +108,8 @@
         --backgroundimageUrl: url('../images/bg.jpg');
         --backgroundblurBrightness: 0.7;
         --loginbackgroundColor: rgba(30, 30, 30, 0.7);
+        --tableborderBottom: #2d2d2d;
+        --tableShadow: #2d2d2d;
     }
 }
 
@@ -996,11 +1000,9 @@ div.cbi-section {
 .Firewall form,
 #cbi-network>.cbi-section-node,
 #cbi-wireless>.cbi-section-node,
-#cbi-wireless>#wifi_assoclist_table,
 [data-tab-title],
 /* [data-page^="admin-system-admin"]:not(.node-main-login) .cbi-map:not(#cbi-dropbear), */
 [data-page="admin-system-opkg"] #maincontent>.container {
-    /* margin: 10px 0 0 0; */
     padding: 10px;
     border: 1px;
     font-weight: normal;
@@ -1013,7 +1015,7 @@ div.cbi-section {
     overflow-y: hidden;
     background-color: var(--sectionbgColor);
     border-radius: 8px;
-    /* box-shadow: var(--sectionShaddow); */
+    box-shadow: var(--sectionShaddow);
     -webkit-overflow-scrolling: touch;
 }
 
@@ -2743,30 +2745,29 @@ input[name="nslookup"] {
 }
 
 /* wireless overview */
-#cbi-wireless>#wifi_assoclist_table>.tr {
-    box-shadow: inset 1px -1px 0 #ddd, inset -1px -1px 0 #ddd;
+#wifi_assoclist_table {
+    padding: 10px;
+    border: 1px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    font-family: inherit;
+    text-align: left;
+    min-width: inherit;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: var(--sectionbgColor);
+    box-shadow: var(--sectionShaddow);
+    -webkit-overflow-scrolling: touch;
+    border: var(--sectionBorder);
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
-#cbi-wireless>#wifi_assoclist_table>.tr.placeholder>.td {
-    right: 33px;
-    bottom: 33px;
-    left: 33px;
-    border-top: thin solid #ddd !important;
-    white-space: normal !important; /* fix wifi table */
+#wifi_assoclist_table>.tr>.td{
+    white-space: normal !important;
 }
 
-#cbi-wireless>#wifi_assoclist_table>.tr.table-titles {
-    box-shadow: inset 1px 0 0 #ddd, inset -1px 0 0 #ddd;
-}
-
-#cbi-wireless>#wifi_assoclist_table>.tr.table-titles>.th {
-    border-bottom: thin solid #ddd;
-    box-shadow: 0 -1px 0 0 #ddd;
-}
-
-#wifi_assoclist_table>.tr>.td[data-title="RX Rate / TX Rate"] {
-    width: 23rem;
-}
 
 /* firewall */
 #iptables {
@@ -3538,7 +3539,6 @@ td.cbi-button,
 .node-admin-status-routes #view table,
 .node-admin-status-processes #view table,
 .node-admin-status-realtime-connections #view table[id*=connections] {
-    /* margin: 10px 0 0 0; */
     padding: 10px;
     border: 1px;
     font-weight: normal;
@@ -3550,13 +3550,12 @@ td.cbi-button,
     overflow-x: auto;
     overflow-y: hidden;
     background-color: var(--sectionbgColor);
-    /* box-shadow: var(--sectionShaddow); */
+    box-shadow: var(--sectionShaddow);
     -webkit-overflow-scrolling: touch;
     border: var(--sectionBorder);
     margin-bottom: 20px;
     border-radius: 8px;
-    margin-top: 5px;
-    /* display: block; */
+    margin-top: 20px;
 }
 
 .node-admin-status-realtime-connections #view table[id*=connections] {
