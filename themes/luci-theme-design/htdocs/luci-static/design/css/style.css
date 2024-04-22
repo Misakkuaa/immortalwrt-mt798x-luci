@@ -2325,25 +2325,26 @@ textarea {
 }
 
 .ifacebox {
+    border-radius: 8px;
     line-height: 1.25;
     display: inline-flex;
     flex-direction: column;
     min-width: 100px;
-    /* border-bottom: thin solid #666; */
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .2);
 }
 
 .ifacebox-head {
+    border-radius: 8px 8px 0 0;
     padding: .25em;
     background-color: #6d6d6d;
 }
 
 .ifacebox-head.active {
-    /* background: #5bc0de; */
     background-color: var(--bar-bg);
 }
 
 .ifacebox-body {
+    border-radius: 0 0 8px 8px;
     padding: .25em;
     background-color: var(--ifaceboxbodyBg);
 }
@@ -3649,4 +3650,13 @@ table.table.assoclist>.tr>.td {
 /* fix overview lases cbi-button-apply */
 table.table.lases>.tr>.td.cbi-section-actions {
     width: 0px;
+}
+
+/* fix firewall bandage */
+label.zonebadge.cbi-tooltip-container {
+    border-radius: 8px;
+}
+
+label.zonebadge.zonebadge-empty {
+    border-radius: 8px;
 }
