@@ -3660,3 +3660,8 @@ label.zonebadge.cbi-tooltip-container {
 label.zonebadge.zonebadge-empty {
     border-radius: 8px;
 }
+
+/* fix diagnostics button */
+span.diag-action {
+    padding: 15px;
+}
