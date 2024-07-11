@@ -3665,3 +3665,8 @@ label.zonebadge.zonebadge-empty {
 span.diag-action {
     padding: 15px;
 }
+
+/* fix admin-network */
+ul.dropdown {
+    max-width: 1000px !important;
+}
