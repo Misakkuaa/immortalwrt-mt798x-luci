@@ -56,7 +56,6 @@ adlist_update() {
     [ "$(uci -q get mosdns.config.adblock)" != 1 ] && return 0
     lock_file=/var/lock/mosdns_ad_update.lock
     ad_source=$(uci -q get mosdns.config.ad_source)
-    mirror=""
     : > /etc/mosdns/rule/.ad_source
     if [ -f "$lock_file" ]; then
         has_update=0
@@ -74,6 +73,8 @@ adlist_update() {
             filename=$(basename $url)
             if echo "$url" | grep -Eq "^https://raw.githubusercontent.com" ; then
                 [ -n "$(uci -q get mosdns.config.github_proxy)" ] && mirror="$(uci -q get mosdns.config.github_proxy)/"
+            else
+                mirror=""
             fi
             echo -e "\e[1;32mDownloading $mirror$url\e[0m"
             curl --connect-timeout 5 -m 90 --ipv4 -kfSLo "$AD_TMPDIR/$filename" "$mirror$url"
@@ -142,6 +143,7 @@ v2dat_dump() {
     adblock=$(uci -q get mosdns.config.adblock)
     ad_source=$(uci -q get mosdns.config.ad_source)
     configfile=$(uci -q get mosdns.config.configfile)
+    streaming_media=$(uci -q get mosdns.config.custom_stream_media_dns)
     mkdir -p /var/mosdns
     rm -f /var/mosdns/geo*.txt
     if [ "$configfile" = "/var/etc/mosdns.json" ]; then
@@ -149,6 +151,8 @@ v2dat_dump() {
         v2dat unpack geoip -o /var/mosdns -f cn $v2dat_dir/geoip.dat
         v2dat unpack geosite -o /var/mosdns -f cn -f apple -f 'geolocation-!cn' $v2dat_dir/geosite.dat
         [ "$adblock" -eq 1 ] && [ $(echo $ad_source | grep -c geosite.dat) -ge '1' ] && v2dat unpack geosite -o /var/mosdns -f category-ads-all $v2dat_dir/geosite.dat
+        [ "$streaming_media" -eq 1 ] && v2dat unpack geosite -o /var/mosdns -f netflix -f disney -f hulu $v2dat_dir/geosite.dat || \
+        touch /var/mosdns/geosite_disney.txt ; touch /var/mosdns/geosite_netflix.txt ; touch /var/mosdns/geosite_hulu.txt
     else
         # custom config
         v2dat unpack geoip -o /var/mosdns -f cn $v2dat_dir/geoip.dat
