@@ -646,8 +646,13 @@ end
 function get_auth_info()
 	port = UCI:get("openclash", "config", "cn_port")
 	passwd = UCI:get("openclash", "config", "dashboard_password") or ""
-	ip = SYS.exec("uci -q get network.lan.ipaddr |awk -F '/' '{print $1}' 2>/dev/null |tr -d '\n'")
-	
+	local lan_int_name = UCI:get("openclash", "config", "lan_interface_name") or "0"
+	if lan_int_name == "0" then
+		ip = SYS.exec("uci -q get network.lan.ipaddr |awk -F '/' '{print $1}' 2>/dev/null |tr -d '\n'")
+	else
+		ip = SYS.exec(string.format("ip address show %s | grep -w 'inet' 2>/dev/null |grep -Eo 'inet [0-9\.]+' | awk '{print $2}' | tr -d '\n'", lan_int_name))
+	end
+
 	if not ip or ip == "" then
 		ip = SYS.exec("ip address show $(uci -q -p /tmp/state get network.lan.ifname || uci -q -p /tmp/state get network.lan.device) | grep -w 'inet' 2>/dev/null |grep -Eo 'inet [0-9\.]+' | awk '{print $2}' | tr -d '\n'")
 	end
@@ -822,7 +827,7 @@ function auto_get_policy_group(passwd, ip, port)
 	if con then
 		con = JSON.parse(con)
 	end
-	if con then
+	if con and con.connections then
 		for i = 1, #(con.connections) do
 			if type == "Netflix" then
 				if string.match(con.connections[i].metadata.host, "www%.netflix%.com") then
@@ -1382,7 +1387,7 @@ function paramount_plus_unlock_test()
 		if not string.find(data.url_effective, "intl") then
 			status = 2
 			data = SYS.exec(string.format("curl -sL --connect-timeout 5 -m 5 --speed-time 5 --speed-limit 1 --retry 2 -H 'Accept-Language: en' -H 'Content-Type: application/json' -H 'User-Agent: %s' %s", UA, url))
-			region = string.upper(string.sub(string.match(data, "\"siteEdition\":\"%a+|%a+\""), 19, -1)) or string.upper(string.sub(string.match(data, "property: '%a+'"), 12, -2))
+			region = string.upper(string.sub(string.match(data, "\"siteEdition\":\"%a+|%a+\""), 19, -2)) or string.upper(string.sub(string.match(data, "property: '%a+'"), 12, -2))
 			if region then
 				if FS.isfile(string.format("/tmp/openclash_%s_region", type)) then
 					old_region = FS.readfile(string.format("/tmp/openclash_%s_region", type))
