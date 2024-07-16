@@ -10,22 +10,41 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)/config
-	config PACKAGE_kmod-inet-diag
-	default y if PACKAGE_$(PKG_NAME)
+menu "Configuration"
+	depends on PACKAGE_$(PKG_NAME)
 
-	config PACKAGE_luci-compat
-	default y if PACKAGE_$(PKG_NAME)
+config PACKAGE_$(PKG_NAME)_INET_DIAG
+	bool "INET diag support for SS"
+	select PACKAGE_kmod-inet-diag
+	default y
 
-	config PACKAGE_kmod-nft-tproxy
+config PACKAGE_$(PKG_NAME)_Luci_Compat
+	bool "Luci Compat API Support"
+	select PACKAGE_luci-compat
+	default y
+
+config PACKAGE_$(PKG_NAME)_Nftables_Transparent_Proxy
+	depends on PACKAGE_firewall4
+	bool "Nftables Transparent Proxy"
+	select PACKAGE_kmod-nft-tproxy
 	default y if PACKAGE_firewall4
 
-	config PACKAGE_kmod-ipt-nat
+config PACKAGE_$(PKG_NAME)_Iptables_Network_Address_Translation
+	depends on PACKAGE_firewall
+	bool "Iptables Network Address Translation"
+	select PACKAGE_kmod-ipt-nat
 	default y if ! PACKAGE_firewall4
 
-	config PACKAGE_iptables-mod-tproxy
+config PACKAGE_$(PKG_NAME)_Iptables_Transparent_Proxy
+	depends on PACKAGE_firewall
+	bool "Iptables Transparent Proxy"
+	select PACKAGE_iptables-mod-tproxy
 	default y if ! PACKAGE_firewall4
 
-	config PACKAGE_iptables-mod-extra
+config PACKAGE_$(PKG_NAME)_Iptables_Extra
+	depends on PACKAGE_firewall
+	bool "Iptables Extra"
+	select PACKAGE_iptables-mod-extra
 	default y if ! PACKAGE_firewall4
 endef
 
