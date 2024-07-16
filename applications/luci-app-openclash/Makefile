@@ -46,6 +46,8 @@ config PACKAGE_$(PKG_NAME)_Iptables_Extra
 	bool "Iptables Extra"
 	select PACKAGE_iptables-mod-extra
 	default y if ! PACKAGE_firewall4
+	
+endmenu
 endef
 
 define Package/$(PKG_NAME)
