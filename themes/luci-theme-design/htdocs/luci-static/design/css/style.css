@@ -798,6 +798,10 @@ span[data-indicator="uci-changes"] {
     content: "\e645";
 }
 
+.main>.main-left>.nav>.slide>a[data-title="Modem"]:before {
+    content: "\43";
+}
+
 .main>.main-left>.nav>.slide>a[data-title="Services"]:before {
     content: "\e6cb";
 }
