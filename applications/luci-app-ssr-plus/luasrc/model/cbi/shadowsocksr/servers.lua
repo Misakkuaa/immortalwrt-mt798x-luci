@@ -9,7 +9,7 @@ uci:foreach("shadowsocksr", "servers", function(s)
 	server_count = server_count + 1
 end)
 
-m = Map("shadowsocksr", translate("Servers subscription and manage"))
+m = Map("shadowsocksr", translate("高级防检测配置管理"))
 
 -- Server Subscribe
 s = m:section(TypedSection, "server_subscribe")
@@ -17,7 +17,7 @@ s.anonymous = true
 
 o = s:option(Flag, "auto_update", translate("Auto Update"))
 o.rmempty = false
-o.description = translate("Auto Update Server subscription, GFW list and CHN route")
+o.description = translate("自动更新服务器")
 
 o = s:option(ListValue, "auto_update_time", translate("Update time (every day)"))
 for t = 0, 23 do
@@ -26,20 +26,20 @@ end
 o.default = 2
 o.rmempty = false
 
-o = s:option(DynamicList, "subscribe_url", translate("Subscribe URL"))
-o.rmempty = true
+--o = s:option(DynamicList, "subscribe_url", translate("服务器链接"))
+--o.rmempty = true
 
-o = s:option(Value, "filter_words", translate("Subscribe Filter Words"))
-o.rmempty = true
-o.description = translate("Filter Words splited by /")
+--o = s:option(Value, "filter_words", translate("过滤"))
+--o.rmempty = true
+--o.description = translate("Filter Words splited by /")
 
-o = s:option(Value, "save_words", translate("Subscribe Save Words"))
-o.rmempty = true
-o.description = translate("Save Words splited by /")
+--o = s:option(Value, "save_words", translate("运营商选择"))
+--o.rmempty = true
+--o.description = translate("Save Words splited by /")
 
-o = s:option(Button, "update_Sub", translate("Update Subscribe List"))
+o = s:option(Button, "update_Sub", translate("更新"))
 o.inputstyle = "reload"
-o.description = translate("Update subscribe url list first")
+o.description = translate("更新")
 o.write = function()
 	uci:commit("shadowsocksr")
 	luci.http.redirect(luci.dispatcher.build_url("admin", "services", "shadowsocksr", "servers"))

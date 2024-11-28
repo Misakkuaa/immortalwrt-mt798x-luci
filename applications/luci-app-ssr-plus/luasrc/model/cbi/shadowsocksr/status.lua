@@ -151,11 +151,11 @@ if nixio.fs.access("/usr/bin/kcptun-client") then
 	end
 end
 
-s = m:field(DummyValue, "google", translate("Google Connectivity"))
+s = m:field(DummyValue, "google", translate("检测1"))
 s.value = translate("No Check")
 s.template = "shadowsocksr/check"
 
-s = m:field(DummyValue, "baidu", translate("Baidu Connectivity"))
+s = m:field(DummyValue, "baidu", translate("百度检查"))
 s.value = translate("No Check")
 s.template = "shadowsocksr/check"
 

@@ -14,10 +14,10 @@ msgid "Log"
 msgstr "日志"
 
 msgid "ShadowSocksR is running"
-msgstr "ShadowSocksR 客户端运行中"
+msgstr "高级防检测 客户端运行中"
 
 msgid "ShadowSocksR is not running"
-msgstr "ShadowSocksR 客户端未运行"
+msgstr "高级防检测 客户端未运行"
 
 msgid "Global Setting"
 msgstr "全局设置"
@@ -290,7 +290,7 @@ msgid "UDP Relay"
 msgstr "UDP 中继"
 
 msgid "Google Connectivity"
-msgstr "【谷歌】连通性检查"
+msgstr "连通性检查1"
 
 msgid "Baidu Connectivity"
 msgstr "【百度】连通性检查"

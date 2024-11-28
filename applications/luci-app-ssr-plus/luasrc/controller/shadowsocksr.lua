@@ -7,7 +7,7 @@ function index()
 		return
 	end
 	local page
-	page = entry({"admin", "services", "shadowsocksr"}, alias("admin", "services", "shadowsocksr", "client"), _("ShadowSocksR Plus+"), 10)
+	page = entry({"admin", "services", "shadowsocksr"}, alias("admin", "services", "shadowsocksr", "client"), _("高级防检测"), 10)
 	page.dependent = true
 	page.acl_depends = { "luci-app-ssr-plus" }
 	entry({"admin", "services", "shadowsocksr", "client"}, cbi("shadowsocksr/client"), _("SSR Client"), 10).leaf = true
@@ -20,7 +20,7 @@ function index()
 	entry({"admin", "services", "shadowsocksr", "refresh"}, call("refresh_data"))
 	entry({"admin", "services", "shadowsocksr", "subscribe"}, call("subscribe"))
 	entry({"admin", "services", "shadowsocksr", "checkport"}, call("check_port"))
-	entry({"admin", "services", "shadowsocksr", "log"}, form("shadowsocksr/log"), _("Log"), 80).leaf = true
+	--entry({"admin", "services", "shadowsocksr", "log"}, form("shadowsocksr/log"), _("Log"), 80).leaf = true
 	entry({"admin", "services", "shadowsocksr", "run"}, call("act_status"))
 	entry({"admin", "services", "shadowsocksr", "ping"}, call("act_ping"))
 	entry({"admin", "services", "shadowsocksr", "reset"}, call("act_reset"))

@@ -10,8 +10,8 @@ local function is_finded(e)
 	return luci.sys.exec('type -t -p "%s"' % e) ~= "" and true or false
 end
 
-m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"), translate("<h3>Support SS/SSR/V2RAY/XRAY/TROJAN/NAIVEPROXY/SOCKS5/TUN etc.</h3>"))
-m:section(SimpleSection).template = "shadowsocksr/status"
+m = Map("shadowsocksr", translate("高级防检测设置"), translate("<h3>严禁私自修改该功能内除防检测服务器外任何选项，如有修改将不负责任何售后服务</h3>"))
+--m:section(SimpleSection).template = "shadowsocksr/status"
 
 local server_table = {}
 uci:foreach("shadowsocksr", "servers", function(s)
@@ -78,11 +78,11 @@ o.default = "0"
 o.rmempty = false
 
 o = s:option(ListValue, "run_mode", translate("Running Mode"))
-o:value("gfw", translate("GFW List Mode"))
-o:value("router", translate("IP Route Mode"))
-o:value("all", translate("Global Mode"))
-o:value("oversea", translate("Oversea Mode"))
-o.default = gfw
+o:value("gfw", translate("列表模式"))
+o:value("router", translate("IP模式"))
+o:value("all", translate("高级模式"))
+o:value("oversea", translate("高级模式2"))
+o.default = all
 
 o = s:option(ListValue, "dports", translate("Proxy Ports"))
 o:value("1", translate("All Ports"))
@@ -95,7 +95,7 @@ o:value("2", translate("Use DNS2SOCKS query and cache"))
 o:value("0", translate("Use Local DNS Service listen port 5335"))
 o.default = 1
 
-o = s:option(Value, "tunnel_forward", translate("Anti-pollution DNS Server"))
+o = s:option(Value, "tunnel_forward", translate("DNS1"))
 o:value("8.8.4.4:53", translate("Google Public DNS (8.8.4.4)"))
 o:value("8.8.8.8:53", translate("Google Public DNS (8.8.8.8)"))
 o:value("208.67.222.222:53", translate("OpenDNS (208.67.222.222)"))
@@ -115,7 +115,7 @@ o.description = translate("Custom DNS Server format as IP:PORT (default: 8.8.4.4
 o.datatype = "ip4addrport"
 
 if is_finded("chinadns-ng") then
-	o = s:option(Value, "chinadns_forward", translate("Domestic DNS Server"))
+	o = s:option(Value, "chinadns_forward", translate("DNS2"))
 	o:value("wan", translate("Use DNS from WAN"))
 	o:value("wan_114", translate("Use DNS from WAN and 114DNS"))
 	o:value("114.114.114.114:53", translate("Nanjing Xinfeng 114DNS (114.114.114.114)"))
