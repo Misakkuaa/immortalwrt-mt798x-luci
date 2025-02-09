@@ -1,9 +1,9 @@
 {
-	"admin/network/ua2f": {
+	"admin/uac": {
 		"title": "防检测",
 		"action": {
 			"type": "view",
-			"path": "ua2f"
+			"path": "UAC"
 		},
 		"depends": {
 			"acl": [ "luci-app-ua2f" ],
