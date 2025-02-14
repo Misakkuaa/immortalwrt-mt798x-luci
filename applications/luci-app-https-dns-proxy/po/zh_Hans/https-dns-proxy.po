@@ -194,7 +194,7 @@ msgstr "DNS Forge - 德国"
 
 #: applications/luci-app-https-dns-proxy/luasrc/controller/https-dns-proxy.lua:4
 msgid "DNS HTTPS Proxy"
-msgstr "DNS HTTPS 代理"
+msgstr "DNS加密"
 
 #: applications/luci-app-https-dns-proxy/luasrc/model/cbi/https-dns-proxy.lua:110
 msgid "DNS HTTPS Proxy Settings"
