@@ -1,18 +1,4 @@
 {
-	"admin/network/switch": {
-		"title": "Switch",
-		"order": 20,
-		"action": {
-			"type": "view",
-			"path": "network/switch"
-		},
-		"depends": {
-			"acl": [ "luci-mod-network-config" ],
-			"fs": { "/sbin/swconfig": "executable" },
-			"uci": { "network": { "@switch": true } }
-		}
-	},
-
 	"admin/network/wireless": {
 		"title": "Wireless",
 		"order": 15,
@@ -46,46 +32,6 @@
 		}
 	},
 
-	"admin/network/dhcp": {
-		"title": "DHCP and DNS",
-		"order": 30,
-		"action": {
-			"type": "view",
-			"path": "network/dhcp"
-		},
-		"depends": {
-			"acl": [ "luci-mod-network-dhcp" ],
-			"fs": {
-				"/usr/sbin/dnsmasq": "executable"
-			},
-			"uci": { "dhcp": true }
-		}
-	},
-
-	"admin/network/hosts": {
-		"title": "Hostnames",
-		"order": 40,
-		"action": {
-			"type": "view",
-			"path": "network/hosts"
-		},
-		"depends": {
-			"acl": [ "luci-mod-network-dhcp" ],
-			"uci": { "dhcp": true }
-		}
-	},
-
-	"admin/network/routes": {
-		"title": "Static Routes",
-		"order": 50,
-		"action": {
-			"type": "view",
-			"path": "network/routes"
-		},
-		"depends": {
-			"acl": [ "luci-mod-network-config" ]
-		}
-	},
 
 	"admin/network/diagnostics": {
 		"title": "Diagnostics",
