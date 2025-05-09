@@ -5,10 +5,20 @@
 			"ubus": {
 				"service": [ "list" ]
 			},
-			"uci": [ "ua2f" ]
+			"uci": [ "ua2f" ],
+			"file": {
+				"/bin/sh": [ "exec" ],
+				"/usr/share/ua2f/update_firewall.sh": [ "exec" ],
+				"/usr/share/ua2f/clear_firewall.sh": [ "exec" ],
+				"/usr/share/ua2f/firewall.user": [ "read" ],
+				"/etc/firewall.user": [ "read", "write" ]
+			}
 		},
 		"write": {
-			"uci": [ "ua2f" ]
+			"uci": [ "ua2f" ],
+			"file": {
+				"/etc/firewall.user": [ "write" ]
+			}
 		}
 	}
 }

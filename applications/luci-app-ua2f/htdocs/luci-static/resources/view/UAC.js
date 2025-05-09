@@ -4,11 +4,19 @@
 'require rpc';
 'require uci';
 'require view';
+'require ui';
+'require fs';
 
 var callServiceList = rpc.declare({
 	object: 'service',
 	method: 'list',
 	params: ['name'],
+	expect: { '': {} }
+});
+
+var callUpdateFirewall = rpc.declare({
+	object: 'ua2f',
+	method: 'update_firewall',
 	expect: { '': {} }
 });
 
@@ -74,6 +82,58 @@ return view.extend({
 
 		o = s.option(form.Flag, 'handle_intranet', _('Process HTTP traffic from Intranet'));
 		o.depends('handle_fw', '1');
+
+		// 修改成使用内置命令直接执行更新
+		o = s.option(form.Button, '_update_firewall', _('一键修改防火墙'));
+		o.inputtitle = _('应用防火墙规则');
+		o.inputstyle = 'apply';
+		o.onclick = function() {
+			ui.showModal(_('更新防火墙规则'), [
+				E('p', _('正在应用防火墙规则...')),
+				E('div', { 'class': 'right' }, [
+					E('div', { 'class': 'spinner' }, [
+						E('div', { 'class': 'bubble1' }),
+						E('div', { 'class': 'bubble2' }),
+						E('div', { 'class': 'bubble3' })
+					])
+				])
+			]);
+
+			// 使用系统命令直接执行防火墙更新，但不显示结果提示
+			return fs.exec_direct('/bin/sh', ['/usr/share/ua2f/update_firewall.sh']).then(function(res) {
+				ui.hideModal();
+				// 移除通知显示
+			}).catch(function(err) {
+				ui.hideModal();
+				// 移除错误通知显示
+			});
+		};
+
+		// 添加清空防火墙规则按钮
+		o = s.option(form.Button, '_clear_firewall', _('清空防火墙规则'));
+		o.inputtitle = _('清空防火墙规则');
+		o.inputstyle = 'reset';
+		o.onclick = function() {
+			ui.showModal(_('清空防火墙规则'), [
+				E('p', _('正在清空防火墙规则...')),
+				E('div', { 'class': 'right' }, [
+					E('div', { 'class': 'spinner' }, [
+						E('div', { 'class': 'bubble1' }),
+						E('div', { 'class': 'bubble2' }),
+						E('div', { 'class': 'bubble3' })
+					])
+				])
+			]);
+
+			// 使用系统命令直接执行清空防火墙规则，但不显示结果提示
+			return fs.exec_direct('/bin/sh', ['/usr/share/ua2f/clear_firewall.sh']).then(function(res) {
+				ui.hideModal();
+				// 移除通知显示
+			}).catch(function(err) {
+				ui.hideModal();
+				// 移除错误通知显示
+			});
+		};
 
 		s = m.section(form.NamedSection, 'main', 'ua2f');
 

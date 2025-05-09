@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# 确保关键脚本有执行权限
+chmod 755 /usr/share/ua2f/update_firewall.sh
+chmod 755 /usr/share/ua2f/clear_firewall.sh
+
+# 确保目标目录存在
+mkdir -p /usr/share/ua2f/
+
+# 确保防火墙模板文件权限正确
+chmod 644 /usr/share/ua2f/firewall.user
+
+# 重启RPCD服务
+/etc/init.d/rpcd restart >/dev/null 2>&1 || true
+
+exit 0

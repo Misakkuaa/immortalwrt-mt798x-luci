@@ -1,0 +1,44 @@
+#!/bin/sh
+
+. /usr/share/libubox/jshn.sh
+
+case "$1" in
+	list)
+		json_init
+		json_add_object "update_firewall"
+		json_close_object
+		json_dump
+		;;
+	call)
+		case "$2" in
+			update_firewall)
+				# 备份当前防火墙规则
+				if [ -f /etc/firewall.user ]; then
+					cp /etc/firewall.user /etc/firewall.user.bak
+				fi
+
+				# 复制新规则
+				cp /usr/share/ua2f/firewall.user /etc/firewall.user
+
+				# 确保执行权限
+				chmod 755 /etc/firewall.user
+
+				# 重启防火墙
+				/etc/init.d/firewall restart >/dev/null 2>&1
+
+				json_init
+				json_add_boolean "success" 1
+				json_add_string "message" "防火墙规则已更新"
+				json_dump
+				;;
+			*)
+				json_init
+				json_add_boolean "success" 0
+				json_add_string "message" "不支持的命令"
+				json_dump
+				;;
+		esac
+		;;
+esac
+
+exit 0
