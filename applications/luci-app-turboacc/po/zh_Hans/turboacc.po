@@ -91,7 +91,7 @@ msgstr "全锥形 NAT"
 
 #: applications/luci-app-turboacc/htdocs/luci-static/resources/view/turboacc.js:178
 msgid "Full cone NAT (NAT1) can improve gaming performance effectively."
-msgstr "Full cone NAT（NAT1）可以有效提升游戏体验。"
+msgstr "Full cone NAT（NAT1）可以有效提升游戏体验（开启将会影响防检测效果）。"
 
 #: applications/luci-app-turboacc/root/usr/share/rpcd/acl.d/luci-app-turboacc.json:3
 msgid "Grant UCI access for luci-app-turboacc"
@@ -115,7 +115,7 @@ msgstr "由联发科实现的开源硬件流量分载引擎。"
 
 #: applications/luci-app-turboacc/htdocs/luci-static/resources/view/turboacc.js:74
 msgid "Open source flow offloading engine (fast path or hardware NAT)."
-msgstr "开源流量分载引擎（快速转发或硬件 NAT）。"
+msgstr "流量分载引擎（非了解请勿开启，将会影响防检测运行效果，如不连接校园网，可开启提高路由器速率）。"
 
 #: applications/luci-app-turboacc/htdocs/luci-static/resources/view/turboacc.js:146
 msgid "Requires hardware NAT support. Implemented at least for mt7621."
@@ -145,7 +145,7 @@ msgstr "TCP 拥塞控制算法。"
 #: applications/luci-app-turboacc/htdocs/luci-static/resources/view/turboacc.js:119
 #: applications/luci-app-turboacc/htdocs/luci-static/resources/view/turboacc.js:142
 msgid "The offloading engine for routing/NAT."
-msgstr "用于 路由/NAT 的分载引擎。"
+msgstr "用于 路由/NAT 的分载引擎。（开启将会影响防检测效果）"
 
 #: applications/luci-app-turboacc/root/usr/share/luci/menu.d/luci-app-turboacc.json:3
 msgid "TurboACC"
