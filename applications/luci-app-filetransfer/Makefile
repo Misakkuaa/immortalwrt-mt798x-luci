@@ -6,7 +6,7 @@
 
 include $(TOPDIR)/rules.mk
 
-LUCI_TITLE:=LuCI page for IPK upload
+LUCI_TITLE:=Ruijie File Upload
 LUCI_DEPENDS:=+luci-lib-fs
 
 include ../../luci.mk

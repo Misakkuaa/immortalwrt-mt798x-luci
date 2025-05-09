@@ -22,8 +22,8 @@ msgstr "文件名"
 msgid "File saved to"
 msgstr "文件保存到"
 
-msgid "FileTransfer"
-msgstr "文件传输"
+msgid "Ruijie File Upload"
+msgstr "锐捷文件上传"
 
 msgid "Install"
 msgstr "安装"
@@ -52,5 +52,5 @@ msgstr "上传"
 msgid "Upload file list"
 msgstr "上传文件列表"
 
-msgid "Upload file to '/tmp/upload/'"
-msgstr "将文件上传到'/tmp/upload/'"
+msgid "Upload file to '/etc/mentohust/'"
+msgstr "将文件上传到'/etc/mentohust/'"
